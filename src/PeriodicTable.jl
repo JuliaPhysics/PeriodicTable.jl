@@ -4,32 +4,6 @@ module PeriodicTable
 using JSON
 
 """
-PT composite type 
-"""
-type PT
-    data
-
-    # Helper method, something that I am happy it worked!
-    function load_data()
-        output = []
-        open("src/data.json", "r") do file
-        data_json = JSON.parse(readstring(file))
-        for d in data_json
-            push!(output, Element(d))
-        end
-        end
-        output
-    end
-    
-    # inner constructor
-    function PT()
-        data = load_data()
-        new(data)
-    end
-end
-
-
-"""
 Element composite type
 """
 type Element
@@ -85,7 +59,33 @@ type Element
                                                         spectral_img,summary,symbol,
                                                         xpos,ypos,shells)
 end
+
+
+"""
+PT composite type 
+"""
+type PT
+    data
+
+    # Helper method, something that I am happy it worked!
+    function load_data()
+        output = []
+        open("src/data.json", "r") do file
+        data_json = JSON.parse(readstring(file))
+        for d in data_json
+            push!(output, Element(d))
+        end
+        end
+        output
+    end
     
+    # inner constructor
+    function PT()
+        data = load_data()
+        new(data)
+    end
+end
+
 
 """
 Function to get element by atomic number
@@ -96,6 +96,6 @@ end
     
 
 # exports
-export PT, Element
+export Element, PT, get_element
 
 end
