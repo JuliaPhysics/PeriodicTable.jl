@@ -2,7 +2,7 @@
 [![codecov.io](http://codecov.io/github/rahulkp220/PeriodicTable.jl/coverage.svg?branch=master)](http://codecov.io/github/rahulkp220/PeriodicTable.jl?branch=master)
 
 # PeriodicTable
-A very simple package for accessing elements in the Periodic Table! :cheers:
+A very simple package for accessing elements in the Periodic Table! :fire:
 
 ## Installation
 ```julia
