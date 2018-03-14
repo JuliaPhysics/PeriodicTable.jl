@@ -70,12 +70,16 @@ type PT
     # Helper method, something that I am happy it worked!
     function load_data()
         output = []
-        open(abspath("data.json"), "r") do file
+        file_path = joinpath(Pkg.dir("PeriodicTable"),"src","data", "elements.json")
+        
+        # open the file, convert data, append to Array
+        open(file_path, "r") do file
         data_json = JSON.parse(readstring(file))
         for d in data_json
             push!(output, Element(d))
         end
         end
+        
         output
     end
     
