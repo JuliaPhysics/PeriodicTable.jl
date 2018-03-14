@@ -4,17 +4,17 @@
 # PeriodicTable
 A very simple package for accessing elements in the Periodic Table! :cheers:
 
-# Installation
+## Installation
 ```julia
 julia> Pkg.clone("https://github.com/rahulkp220/PeriodicTable.jl.git")
 ```
 
-# Update
+## Update
 ```julia
 julia> Pkg.update("PeriodicTable")
 ```
 
-# How it works?
+## How it works?
 PeriodicTable.jl includes a `data.json` file which acts like a database for this small library.
 Working with it is very simple, indeed its just 2 steps before you see the actual data.
 
@@ -83,7 +83,7 @@ julia> fieldnames(ele)
 
 ```
 
-# Data by
+## Data by
 * [Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON)
 
 ## Facing issues? :scream:
