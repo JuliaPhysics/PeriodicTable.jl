@@ -70,7 +70,7 @@ type PT
     # Helper method, something that I am happy it worked!
     function load_data()
         output = []
-        open("src/data.json", "r") do file
+        open(abspath("data.json"), "r") do file
         data_json = JSON.parse(readstring(file))
         for d in data_json
             push!(output, Element(d))
