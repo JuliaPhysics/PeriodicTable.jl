@@ -19,7 +19,7 @@ PeriodicTable.jl includes a `data.json` file which acts like a database for this
 Working with it is very simple, indeed its just 2 steps before you see the actual data.
 
 ### View the Periodic Table!
-This awesome view was added by [lancebeet](https://github.com/lancebeet) via [#4](https://github.com/rahulkp220/PeriodicTable.jl/pull/4)
+This awesome view was added by [Jacob Wikmark](https://github.com/lancebeet) via [#4](https://github.com/rahulkp220/PeriodicTable.jl/pull/4)
 ```julia
 
 # Initialise the object
