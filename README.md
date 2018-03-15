@@ -15,7 +15,7 @@ julia> Pkg.update("PeriodicTable")
 ```
 
 ## How it works?
-PeriodicTable.jl includes a `data.json` file which acts like a database for this small library.
+PeriodicTable.jl includes a `elements.json` file which acts like a database for this small library.
 Working with it is very simple, indeed its just 2 steps before you see the actual data.
 
 ### View the Periodic Table!
