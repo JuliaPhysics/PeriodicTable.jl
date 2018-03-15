@@ -103,6 +103,22 @@ function get_element(pt::PT, atomic_number::Int64)
 end
     
 
+"""
+Show table
+"""
+function Base.show(io::IO, ::MIME"text/plain", p::PT) #We can make this static if data is loaded in compile time
+    table_length = length(p.data)
+    shape = (10,18)
+    
+    array_table = fill("   ", shape)
+    for i in 1:table_length
+        el = p.data[i].data
+        array_table[el["ypos"], el["xpos"]] = rpad(el["symbol"], 3)
+    end
+    print(join([join(array_table[i,:]) for i in 1:shape[1]], '\n'))
+end
+
+
 # exports
 export Element, PT, get_element
 
