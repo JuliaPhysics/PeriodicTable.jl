@@ -18,13 +18,26 @@ julia> Pkg.update("PeriodicTable")
 PeriodicTable.jl includes a `data.json` file which acts like a database for this small library.
 Working with it is very simple, indeed its just 2 steps before you see the actual data.
 
+### View the Periodic Table!
+This awesome Functionality was added by [Lancebeet](https://github.com/lancebeet)
 ```julia
 
 # Initialise the object
 julia> p = PeriodicTable.PT()
+H                                                  He 
+Li Be                               B  C  N  O  F  Ne 
+Na Mg                               Al Si P  S  Cl Ar 
+K  Ca Sc Ti V  Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr 
+Rb Sr Y  Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe 
+Cs Ba    Hf Ta W  Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn 
+Fr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og 
+Uue                                                   
+      La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    
+      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr  
+```
 
-# get the information for any element in the periodic table
-# all you need to pass is a ATOMIC NUMBER of the element.
+### Getting the element and their data
+```julia
 julia> ele = PeriodicTable.get_element(p, 8)
 
 # to get the complete data
