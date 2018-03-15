@@ -7,6 +7,7 @@ using JSON
 const DATA_FILE = "elements.json"
 const PACKAGE_NAME = "PeriodicTable"
 
+
 """
 Element composite type
 """
@@ -64,55 +65,56 @@ type Element
                                                                 xpos,ypos,shells)
 end
 
+# Overriding Base.show() for Element type
+Base.show(io::IO, e::Element) = print(io, e.name, " with atomic number ", length(e.number))
+
+
 
 """
-PT composite type 
+Elements composite type
 """
-type PT
-    data
-
-    # Helper method, something that I am happy it worked!
-    function load_data()
-        output = []
-        file_path = joinpath(Pkg.dir(PACKAGE_NAME),"src","data", DATA_FILE)
-        
-        # open the file, convert data, append to Array
-        open(file_path, "r") do file
-        data_json = JSON.parse(readstring(file))
-        for d in data_json
-            push!(output, Element(d))
-        end
-        end
-        
-        output
-    end
-    
-    # inner constructor
-    function PT()
-        data = load_data()
-        new(data)
-    end
+struct Elements
+    bynumber::Vector{Element}
+    byname::Dict{String,Element}
+    Elements(data::Vector{Element}) = new(data, Dict{String,Element}(lowercase(d.name)=>d for d in data))
 end
 
+# Overriding Base.show() and Base.getindex() for Elements type
+Base.getindex(e::Elements, i::Integer) = e.bynumber[i]
+Base.getindex(e::Elements, i::AbstractString) = e.byname[lowercase(i)]
+Base.show(io::IO, e::Elements) = print(io, "Elements table of ", length(e.bynumber), " elements")
+
+
 
 """
-Function to get element by atomic number
+Function to load data
 """
-function get_element(pt::PT, atomic_number::Int64)
-    pt.data[atomic_number]
+function load_data()
+    output = Element[]
+    file_path = joinpath(Pkg.dir(PACKAGE_NAME),"src","data", DATA_FILE)
+    
+    # open the file, convert data, append to Array
+    open(file_path, "r") do file
+    data_json = JSON.parse(readstring(file))
+    for d in data_json
+        push!(output, Element(d))
+    end
+    end
+    
+    output
 end
     
 
 """
 Show table
 """
-function Base.show(io::IO, ::MIME"text/plain", p::PT) #We can make this static if data is loaded in compile time
-    table_length = length(p.data)
+function Base.show(io::IO, ::MIME"text/plain")
+    table_length = length(elements)
     shape = (10,18)
     
     array_table = fill("   ", shape)
     for i in 1:table_length
-        el = p.data[i].data
+        el = elements[i].data
         array_table[el["ypos"], el["xpos"]] = rpad(el["symbol"], 3)
     end
     print(join([join(array_table[i,:]) for i in 1:shape[1]], '\n'))
@@ -120,6 +122,7 @@ end
 
 
 # exports
-export Element, PT, get_element
+export elements 
+const elements = Elements(load_data())
 
 end
