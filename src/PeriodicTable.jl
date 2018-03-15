@@ -118,6 +118,7 @@ end
 Base.getindex(e::Elements, i::Integer) = e.bynumber[i]
 Base.getindex(e::Elements, i::AbstractString) = e.byname[lowercase(i)]
 Base.getindex(e::Elements, i::Symbol) = e.bysymbol[i]
+Base.getindex(e::Elements, v::AbstractVector) = Element[e[i] for i in v]
 Base.haskey(e::Elements, i::Integer) = haskey(e.bynumber, i)
 Base.haskey(e::Elements, i::AbstractString) = haskey(e.byname, lowercase(i))
 Base.haskey(e::Elements, i::Symbol) = haskey(e.bysymbol, i)
