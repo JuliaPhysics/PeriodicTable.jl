@@ -1,15 +1,12 @@
 using PeriodicTable
 using Base.Test
 
-# test PT 
-p = PeriodicTable.PT()
-@test typeof(p.data) == Array{Any,1}
-@test typeof(p.data[1]) == PeriodicTable.Element
-@test length(p.data) == 119
+@test eltype(elements) = Element
+@test length(elements) == 119
 
 # test get_element
-pget = PeriodicTable.get_element(p, 8)
-@test pget.name == "Oxygen"
-@test pget.symbol == "O"
-@test length(fieldnames(pget)) == 22
-@test length(fieldnames(pget.data)) == 8
+O = elements[8]
+@test O === elements["oxygen"] == elements[:O]
+@test O.name == "Oxygen"
+@test O.symbol == "O"
+@test nfields(O) == 21
