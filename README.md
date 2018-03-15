@@ -47,7 +47,6 @@ Oxygen (O), number 8:
 ```
 
 ### View the Periodic Table!
-This awesome view was added by [Jacob Wikmark](https://github.com/lancebeet) via [#4](https://github.com/rahulkp220/PeriodicTable.jl/pull/4)
 ```julia
 julia> elements
 Elements(…119 elements…):
@@ -65,6 +64,10 @@ Uue
 
 ## Data by
 * [Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON)
+
+## Developed togeather with
+* [Steven G. Johnson](https://github.com/stevengj)
+* [Jacob Wikmark](https://github.com/lancebeet)
 
 ## Facing issues? :scream:
 * Open a PR with the detailed expaination of the issue
