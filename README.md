@@ -1,6 +1,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/rahulkp220/PeriodicTable.jl.svg?branch=master)](https://travis-ci.org/rahulkp220/PeriodicTable.jl)
 [![codecov.io](http://codecov.io/github/rahulkp220/PeriodicTable.jl/coverage.svg?branch=master)](http://codecov.io/github/rahulkp220/PeriodicTable.jl?branch=master)
+[![GitHub contributors](https://img.shields.io/github/contributors/rahulkp220/PeriodicTable.jl.svg)](https://github.com/rahulkp220/PeriodicTable.jl/graphs/contributors)
 
 # PeriodicTable.jl
 A very simple package for accessing elements in the Periodic Table! :fire:
