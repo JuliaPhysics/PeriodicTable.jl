@@ -1,7 +1,7 @@
 using PeriodicTable
 using Base.Test
 
-@test eltype(elements) = Element
+@test eltype(elements) == Element
 @test length(elements) == 119
 
 # test get_element
