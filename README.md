@@ -44,7 +44,17 @@ Oxygen (O), number 8:
         named by: Antoine Lavoisier
           source: https://en.wikipedia.org/wiki/Oxygen
   spectral image: https://en.wikipedia.org/wiki/File:Oxygen_spectre.jpg
+ 
 ```
+Alternatively, you may want to get a list of elements,
+```jl
+julia> elements[1:4]
+4-element Array{PeriodicTable.Element,1}:
+ Element(Hydrogen) 
+ Element(Helium)   
+ Element(Lithium)  
+ Element(Beryllium)
+ ```
 
 ### View the Periodic Table!
 ```julia
