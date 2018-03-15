@@ -49,9 +49,8 @@ Oxygen (O), number 8:
 ### View the Periodic Table!
 This awesome view was added by [Jacob Wikmark](https://github.com/lancebeet) via [#4](https://github.com/rahulkp220/PeriodicTable.jl/pull/4)
 ```julia
-
-# Initialise the object
-julia> p = PeriodicTable.PT()
+julia> elements
+Elements(…119 elements…):
 H                                                  He
 Li Be                               B  C  N  O  F  Ne
 Na Mg                               Al Si P  S  Cl Ar
@@ -61,7 +60,7 @@ Cs Ba    Hf Ta W  Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn
 Fr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
 Uue                                                   
       La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    
-      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr  
+      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr
 ```
 
 ## Data by
