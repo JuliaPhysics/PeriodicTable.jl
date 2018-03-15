@@ -1,5 +1,5 @@
-using PeriodicTable
-using Base.Test
+using PeriodicTable, Compat
+using Compat.Test
 
 @test eltype(elements) == Element
 @test length(elements) == 119 == length(collect(elements))

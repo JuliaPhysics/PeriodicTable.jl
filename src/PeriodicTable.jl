@@ -11,8 +11,6 @@ e.g. `elements[:O]`.
 module PeriodicTable
 export Element, elements
 
-using JSON
-
 """
 Element composite type
 """
@@ -40,36 +38,30 @@ mutable struct Element
     shells::Vector{Int}
 end
 
-# like get(data, name, default), but treats
-# non-numeric data as missing
-function getnum(data, name, default::Number)
-    v = get(data, name, default)
-    return v isa Number ? v : default
-end
-
-# constructor from JSON-generated Dict
-Element(eldata::Dict) = Element(
-            get(eldata, "name", ""),
-            get(eldata, "appearance", ""),
-            getnum(eldata, "atomic_mass", NaN),
-            getnum(eldata, "boil", NaN),
-            get(eldata, "category", ""),
-            get(eldata, "color", ""),
-            getnum(eldata, "density", NaN),
-            get(eldata, "discovered_by", ""),
-            getnum(eldata, "melt", NaN),
-            getnum(eldata, "molar_heat", NaN),
-            get(eldata, "named_by", ""),
-            getnum(eldata, "number", -1),
-            getnum(eldata, "period", -1),
-            get(eldata, "phase", ""),
-            get(eldata, "source", ""),
-            get(eldata, "spectral_img", ""),
-            get(eldata, "summary", ""),
-            get(eldata, "symbol", ""),
-            getnum(eldata, "xpos", -1),
-            getnum(eldata, "ypos", -1),
-            Vector{Int}(get(eldata, "shells", Int[])))
+Element(; name::AbstractString="",
+          appearance::AbstractString="",
+          atomic_mass::Real=NaN,
+          boil::Real=NaN,
+          category::AbstractString="",
+          color::AbstractString="",
+          density::Real=NaN,
+          discovered_by::AbstractString="",
+          melt::Real=NaN,
+          molar_heat::Real=NaN,
+          named_by::AbstractString="",
+          number::Integer=-1,
+          period::Integer=-1,
+          phase::AbstractString="",
+          source::AbstractString="",
+          spectral_img::AbstractString="",
+          summary::AbstractString="",
+          symbol::AbstractString="",
+          xpos::Integer=-1,
+          ypos::Integer=-1,
+          shells::AbstractVector{<:Integer}=Int[]) =
+    Element(name, appearance, atomic_mass, boil, category, color, density,
+        discovered_by, melt, molar_heat, named_by, number, period, phase,
+        source, spectral_img, summary, symbol, xpos, ypos, shells)
 
 Base.show(io::IO, el::Element) = print(io, "Element(", el.name, ')')
 
@@ -151,16 +143,7 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements)
     end
 end
 
-# load from JSON data
-function Elements(filename = joinpath(dirname(@__FILE__), "data", "elements.json"))
-    data_json = open(JSON.parse, filename)
-    data = sizehint!(Element[], length(data_json))
-    for d in data_json
-        push!(data, Element(d))
-    end
-    return Elements(data)
-end
-
-const elements = Elements()
+include("elements.jl")
+const elements = Elements(_elements_data)
 
 end
