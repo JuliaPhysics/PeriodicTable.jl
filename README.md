@@ -76,7 +76,7 @@ Uue
 ## Data by
 * [Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON)
 
-## Developed togeather with
+## Developed together with
 * [Steven G. Johnson](https://github.com/stevengj)
 * [Jacob Wikmark](https://github.com/lancebeet)
 
