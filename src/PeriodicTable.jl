@@ -93,6 +93,46 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element)
     printpresent(io, "spectral image", el.spectral_img)
 end
 
+function printpresenthtml(io::IO, name, val, suffix="")
+    if ispresent(val)
+        println(io, "<tr><th>", name, "</th><td>", val, suffix, "</td></tr>")
+    end
+end
+
+function Base.show(io::IO, ::MIME"text/html", el::Element)
+    println(io, "<style>")
+    println(io, "th{text-align:right; padding:5px;}td{text-align:left; padding:5px}")
+    println(io, "</style>")
+    println(io, el.name, " (", el.symbol, "), number ", el.number, ':')
+    println(io, "<table>")
+    printpresenthtml(io, "category", el.category)
+    printpresenthtml(io, "atomic mass", el.atomic_mass, " u")
+    printpresenthtml(io, "density", el.density, " g/cm³")
+    printpresenthtml(io, "molar heat", el.molar_heat, " J/mol⋅K")
+    printpresenthtml(io, "melting point", el.melt, " K")
+    printpresenthtml(io, "boiling point", el.boil, " K")
+    printpresenthtml(io, "phase", el.phase)
+    printpresenthtml(io, "shells", el.shells)
+    printpresenthtml(io, "appearance", el.appearance)
+    printpresenthtml(io, "color", el.color)
+    printpresenthtml(io, "summary", el.summary)
+    printpresenthtml(io, "discovered by", el.discovered_by)
+    printpresenthtml(io, "named by", el.named_by)
+
+    link = string("<a href=\"", el.source, "\">", el.source, "</a>")
+    printpresenthtml(io, "source", link)
+    println(io, "</table>")
+    
+    if ispresent(el.spectral_img)
+        width = 500
+        file = replace(el.spectral_img, "https://en.wikipedia.org/wiki/File:", "")
+        #Wikimedia hotlinking api
+        wm = "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/"
+        imgdomain = string(wm, file, "&width=$width")
+        println(io, "<img src=\"", imgdomain, "\" alt=\"", file, "\">")
+    end
+end
+
 """
 Elements composite type
 """
