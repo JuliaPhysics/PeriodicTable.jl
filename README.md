@@ -12,8 +12,9 @@
 A very simple package for accessing elements in the Periodic Table! :fire:
 
 ## Installation
-```julia
-julia> Pkg.clone("https://github.com/rahulkp220/PeriodicTable.jl.git")
+Since PeriodicTable is registered in `METADATA.jl`, you can directly install it like,
+```jl
+julia> Pkg.add("PeriodicTable")
 ```
 
 ## Update
