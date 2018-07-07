@@ -11,6 +11,8 @@ e.g. `elements[:O]`.
 module PeriodicTable
 export Element, elements
 
+using Compat: replace
+
 """
 Element composite type
 """
@@ -122,10 +124,10 @@ function Base.show(io::IO, ::MIME"text/html", el::Element)
     link = string("<a href=\"", el.source, "\">", el.source, "</a>")
     printpresenthtml(io, "source", link)
     println(io, "</table>")
-    
+
     if ispresent(el.spectral_img)
         width = 500
-        file = replace(el.spectral_img, "https://en.wikipedia.org/wiki/File:", "")
+        file = replace(el.spectral_img, "https://en.wikipedia.org/wiki/File:" => "")
         #Wikimedia hotlinking api
         wm = "https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/"
         imgdomain = string(wm, file, "&width=$width")
