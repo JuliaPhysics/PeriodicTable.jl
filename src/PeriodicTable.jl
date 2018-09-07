@@ -25,6 +25,7 @@ mutable struct Element
     color::String
     density::Float64
     discovered_by::String
+    el_config::String
     melt::Float64
     molar_heat::Float64
     named_by::String
@@ -48,6 +49,7 @@ Element(; name::AbstractString="",
           color::AbstractString="",
           density::Real=NaN,
           discovered_by::AbstractString="",
+          el_config::AbstractString="",
           melt::Real=NaN,
           molar_heat::Real=NaN,
           named_by::AbstractString="",
@@ -62,7 +64,7 @@ Element(; name::AbstractString="",
           ypos::Integer=-1,
           shells::AbstractVector{<:Integer}=Int[]) =
     Element(name, appearance, atomic_mass, boil, category, color, density,
-        discovered_by, melt, molar_heat, named_by, number, period, phase,
+        discovered_by, el_config, melt, molar_heat, named_by, number, period, phase,
         source, spectral_img, summary, symbol, xpos, ypos, shells)
 
 Base.show(io::IO, el::Element) = print(io, "Element(", el.name, ')')
@@ -86,6 +88,7 @@ function Base.show(io::IO, ::MIME"text/plain", el::Element)
     printpresent(io, "boiling point", el.boil, " K")
     printpresent(io, "phase", el.phase)
     printpresent(io, "shells", el.shells)
+    printpresent(io, "e⁻-configuration", el.el_config)
     printpresent(io, "appearance", el.appearance)
     printpresent(io, "color", el.color)
     printpresent(io, "summary", el.summary)
@@ -115,6 +118,7 @@ function Base.show(io::IO, ::MIME"text/html", el::Element)
     printpresenthtml(io, "boiling point", el.boil, " K")
     printpresenthtml(io, "phase", el.phase)
     printpresenthtml(io, "shells", el.shells)
+    printpresenthtml(io, "electron configuration", el.el_config)
     printpresenthtml(io, "appearance", el.appearance)
     printpresenthtml(io, "color", el.color)
     printpresenthtml(io, "summary", el.summary)
