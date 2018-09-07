@@ -17,6 +17,17 @@ F = elements[9]
 @test O.symbol == "O"
 @test nfields(O) == 21
 
+# iteration protocol
+if VERSION < v"0.7-"
+    @test start(elements) == 1
+    @test next(elements, 1) == (elements[:H], 2)
+    @test done(elements, length(elements)+1)
+else
+    @test iterate(elements) == (elements[:H], 2)
+    @test iterate(elements, 4) == (elements[:Be], 5)
+    @test iterate(elements, length(elements)+1) == nothing
+end
+
 # 2-argument show functions
 @test repr(elements) == "Elements(…119 elements…)"
 if VERSION < v"0.7-"
