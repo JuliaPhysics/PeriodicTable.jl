@@ -47,6 +47,7 @@ Oxygen (O), number 8:
    boiling point: 90.188 K
            phase: Gas
           shells: [2, 6]
+e⁻-configuration: 1s² 2s² 2p⁴
          summary: Oxygen is a chemical element with symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table and is a highly reactive nonmetal and oxidizing agent that readily forms compounds (notably oxides) with most elements. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium.
    discovered by: Carl Wilhelm Scheele
         named by: Antoine Lavoisier
