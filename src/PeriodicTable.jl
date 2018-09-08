@@ -163,9 +163,13 @@ Base.get(e::Elements, i::Symbol, default) = get(e.bysymbol, i, default)
 # support iterating over elements
 Base.eltype(e::Elements) = Element
 Base.length(e::Elements) = length(e.data)
-Base.start(e::Elements) = start(e.data)
-Base.next(e::Elements, i) = next(e.data, i)
-Base.done(e::Elements, i) = done(e.data, i)
+if VERSION < v"0.7-"
+    Base.start(e::Elements) = start(e.data)
+    Base.next(e::Elements, i) = next(e.data, i)
+    Base.done(e::Elements, i) = done(e.data, i)
+else
+    Base.iterate(e::Elements, state...) = iterate(e.data, state...)
+end
 
 # compact one-line printing
 Base.show(io::IO, e::Elements) = print(io, "Elements(…", length(e), " elements…)")

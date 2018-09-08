@@ -6,6 +6,7 @@ os:
 julia:
   - 0.6
   - 0.7
+  - 1.0
   - nightly
 notifications:
   email: false
@@ -14,6 +15,9 @@ git:
 
 script:
   - julia -e 'Pkg.clone(pwd()); Pkg.build("PeriodicTable"); Pkg.test("PeriodicTable"; coverage=true)'
+matrix:
+  allow_failures:
+    - julia: nightly
 after_success:
   # push coverage results to Coveralls
   - julia -e 'cd(Pkg.dir("PeriodicTable")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
