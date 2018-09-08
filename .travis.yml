@@ -13,8 +13,6 @@ notifications:
 git:
   depth: 99999999
 
-script:
-  - julia -e 'Pkg.clone(pwd()); Pkg.build("PeriodicTable"); Pkg.test("PeriodicTable"; coverage=true)'
 matrix:
   allow_failures:
     - julia: nightly
