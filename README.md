@@ -87,6 +87,7 @@ Uue
 ## Developed together with
 * [Steven G. Johnson](https://github.com/stevengj)
 * [Jacob Wikmark](https://github.com/lancebeet)
+* [Carsten Bauer](https://github.com/crstnbr)
 
 ## Facing issues? :scream:
 * Open a PR with the detailed expaination of the issue
