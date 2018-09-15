@@ -35,7 +35,9 @@ via `elements["oxygen"]`, by symbol via `elements[:O]`, or by number via
 
 Each element has fields `name`, `appearance`, `atomic_mass`, `boil`, `category`, `color`, `density`, `discovered_by`, `melt`, `molar_heat`, `named_by`, `number`, `period`, `phase`, `source`, `spectral_img`, `summary`, `symbol`, `xpos`, `ypos`, `shells`.
 
-This data is pretty-printed when you look up an element in the Julia REPL.
+All physical quantities are [unitful](https://github.com/ajkeller34/Unitful.jl).
+
+The data is pretty-printed when you look up an element in the Julia REPL.
 For example:
 ```jl
 julia> elements["oxygen"]

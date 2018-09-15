@@ -12,6 +12,7 @@ module PeriodicTable
 export Element, elements
 
 using Compat: replace
+import Unitful: u, g, cm, K, J, mol, Quantity
 
 """
 Element composite type
@@ -19,15 +20,15 @@ Element composite type
 mutable struct Element
     name::String
     appearance::String
-    atomic_mass::Float64
-    boil::Float64
+    atomic_mass::typeof(1.0u)
+    boil::typeof(1.0K)
     category::String
     color::String
-    density::Float64
+    density::typeof(1.0g/cm^3)
     discovered_by::String
     el_config::String
-    melt::Float64
-    molar_heat::Float64
+    melt::typeof(1.0K)
+    molar_heat::typeof(1.0J/(mol*K))
     named_by::String
     number::Int
     period::Int
@@ -43,15 +44,15 @@ end
 
 Element(; name::AbstractString="",
           appearance::AbstractString="",
-          atomic_mass::Real=NaN,
-          boil::Real=NaN,
+          atomic_mass::typeof(1.0u)=NaN*u,
+          boil::typeof(1.0K)=NaN*K,
           category::AbstractString="",
           color::AbstractString="",
-          density::Real=NaN,
+          density::typeof(1.0g/cm^3)=NaN*g/cm^3,
           discovered_by::AbstractString="",
           el_config::AbstractString="",
-          melt::Real=NaN,
-          molar_heat::Real=NaN,
+          melt::typeof(1.0K)=NaN*K,
+          molar_heat::typeof(1.0J/(mol*K))=NaN*J/(mol*K),
           named_by::AbstractString="",
           number::Integer=-1,
           period::Integer=-1,
@@ -70,11 +71,11 @@ Element(; name::AbstractString="",
 Base.show(io::IO, el::Element) = print(io, "Element(", el.name, ')')
 
 ispresent(s) = !isempty(s)
-ispresent(x::Float64) = !isnan(x)
+ispresent(x::Union{Float64, Quantity}) = !isnan(x)
 ispresent(n::Int) = n ≥ 0
 function printpresent(io::IO, name, val, suffix=""; pad=16)
     if ispresent(val)
-        println(io, lpad(name, pad), ": ", val, suffix)
+        println(io, lpad(name, pad), ": ", typeof(val) <: Quantity ? val.val : val, suffix)
     end
 end
 
@@ -100,7 +101,7 @@ end
 
 function printpresenthtml(io::IO, name, val, suffix="")
     if ispresent(val)
-        println(io, "<tr><th>", name, "</th><td>", val, suffix, "</td></tr>")
+        println(io, "<tr><th>", name, "</th><td>", typeof(val) <: Quantity ? val.val : val, suffix, "</td></tr>")
     end
 end
 

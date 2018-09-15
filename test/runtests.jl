@@ -1,4 +1,5 @@
-using PeriodicTable, Compat
+using PeriodicTable, Compat, Unitful
+import Unitful: u, g, cm, K, J, mol
 using Compat.Test
 using Compat.Base64
 
@@ -16,6 +17,14 @@ F = elements[9]
 @test O.name == "Oxygen"
 @test O.symbol == "O"
 @test nfields(O) == 22
+
+# Unitful units
+H = elements[1]
+@test unit(H.density) === g/cm^3
+@test unit(H.boil) === K
+@test unit(H.melt) === K
+@test unit(H.molar_heat) === J/(mol*K)
+@test unit(H.atomic_mass) === u
 
 # iteration protocol
 if VERSION < v"0.7-"
