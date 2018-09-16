@@ -14,13 +14,8 @@ A very simple package for accessing elements in the Periodic Table! :fire:
 ### Installation
 Since PeriodicTable is registered in `METADATA.jl`, you can directly install it like,
 ```julia
-# for julia version <= 0.6
 julia> using Pkg
 julia> Pkg.add("PeriodicTable")
-
-# for julia version >= 0.7
-julia>]
-(v1.0) pkg> add PeriodicTable
 ```
 
 
