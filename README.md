@@ -13,19 +13,27 @@ A very simple package for accessing elements in the Periodic Table! :fire:
 
 ## Installation
 Since PeriodicTable is registered in `METADATA.jl`, you can directly install it like,
-```jl
+```julia
 julia> Pkg.add("PeriodicTable")
+
+# OR
+julia>] # switch to pkg> mode
+(v1.0) pkg> add PeriodicTable
 ```
 
 ## Update
 ```julia
 julia> Pkg.update("PeriodicTable")
+
+# OR
+julia>] # switch to pkg> mode
+(v1.0) pkg> update PeriodicTable
 ```
 
 ## How it works?
 PeriodicTable.jl provides a Julia interface to a small database of element
 properties for all of the elements in the periodic table.    In particular
-```jl
+```julia
 using PeriodicTable
 ```
 exports a global variable called `elements`, which is a collection of
@@ -39,7 +47,7 @@ All physical quantities are [unitful](https://github.com/ajkeller34/Unitful.jl).
 
 The data is pretty-printed when you look up an element in the Julia REPL.
 For example:
-```jl
+```julia
 julia> elements["oxygen"]
 Oxygen (O), number 8:
         category: diatomic nonmetal
@@ -58,7 +66,7 @@ e⁻-configuration: 1s² 2s² 2p⁴
  
 ```
 Alternatively, you may want to get a list of elements,
-```jl
+```julia
 julia> elements[1:4]
 4-element Array{PeriodicTable.Element,1}:
  Element(Hydrogen) 
