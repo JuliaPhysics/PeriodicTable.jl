@@ -11,32 +11,41 @@
 # PeriodicTable.jl
 A very simple package for accessing elements in the Periodic Table! :fire:
 
-## Installation
+### Installation
 Since PeriodicTable is registered in `METADATA.jl`, you can directly install it like,
 ```julia
+# for julia version <= 0.6
+julia> using Pkg
 julia> Pkg.add("PeriodicTable")
 
-# OR
-julia>] # switch to pkg> mode
+# for julia version >= 0.7
+julia>]
 (v1.0) pkg> add PeriodicTable
 ```
 
-## Update
-```julia
-julia> Pkg.update("PeriodicTable")
 
-# OR
-julia>] # switch to pkg> mode
-(v1.0) pkg> update PeriodicTable
-```
-
-## How it works?
+### How it works?
 PeriodicTable.jl provides a Julia interface to a small database of element
-properties for all of the elements in the periodic table.    In particular
+properties for all of the elements in the periodic table. 
+
 ```julia
-using PeriodicTable
+julia> using PeriodicTable
+
+julia> elements
+Elements(…119 elements…):
+H                                                  He
+Li Be                               B  C  N  O  F  Ne
+Na Mg                               Al Si P  S  Cl Ar
+K  Ca Sc Ti V  Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr
+Rb Sr Y  Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe
+Cs Ba    Hf Ta W  Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn
+Fr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
+Uue                                                   
+      La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    
+      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr
 ```
-exports a global variable called `elements`, which is a collection of
+
+In particular `PeriodicTable` exports a global variable called `elements`, which is a collection of
 `Element` data structures.  You can look up elements by name (case-insensitive)
 via `elements["oxygen"]`, by symbol via `elements[:O]`, or by number via
 `elements[8]`, for example.
@@ -75,30 +84,15 @@ julia> elements[1:4]
  Element(Beryllium)
  ```
 
-### View the Periodic Table!
-```julia
-julia> elements
-Elements(…119 elements…):
-H                                                  He
-Li Be                               B  C  N  O  F  Ne
-Na Mg                               Al Si P  S  Cl Ar
-K  Ca Sc Ti V  Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr
-Rb Sr Y  Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I  Xe
-Cs Ba    Hf Ta W  Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn
-Fr Ra    Rf Db Sg Bh Hs Mt Ds Rg Cn Nh Fl Mc Lv Ts Og
-Uue                                                   
-      La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu    
-      Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr
-```
+### Data by
+The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON)
+Some information has been (and will be) added over the period of time.
 
-## Data by
-* [Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON)
-
-## Developed together with
+### Developed together with
 * [Steven G. Johnson](https://github.com/stevengj)
 * [Jacob Wikmark](https://github.com/lancebeet)
 * [Carsten Bauer](https://github.com/crstnbr)
 
-## Facing issues? :scream:
+### Facing issues? :scream:
 * Open a PR with the detailed expaination of the issue
 * Reach me out [here](https://www.rahullakhanpal.in)
