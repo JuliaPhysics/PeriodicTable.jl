@@ -17,7 +17,7 @@ import Unitful: u, g, cm, K, J, mol, Quantity
 """
 Element composite type
 """
-mutable struct Element
+struct Element
     name::String
     appearance::String
     atomic_mass::typeof(1.0u)
