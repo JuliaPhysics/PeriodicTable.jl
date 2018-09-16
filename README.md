@@ -26,7 +26,8 @@ julia>]
 
 ### How it works?
 PeriodicTable.jl provides a Julia interface to a small database of element
-properties for all of the elements in the periodic table. 
+properties for all of the elements in the periodic table. In particular `PeriodicTable` exports a global variable called `elements`, which is a collection of
+`Element` data structures.
 
 ```julia
 julia> using PeriodicTable
@@ -45,8 +46,7 @@ Uue
       Ac Th Pa U  Np Pu Am Cm Bk Cf Es Fm Md No Lr
 ```
 
-In particular `PeriodicTable` exports a global variable called `elements`, which is a collection of
-`Element` data structures.  You can look up elements by name (case-insensitive)
+You can look up elements by name (case-insensitive)
 via `elements["oxygen"]`, by symbol via `elements[:O]`, or by number via
 `elements[8]`, for example.
 
@@ -85,8 +85,8 @@ julia> elements[1:4]
  ```
 
 ### Data by
-The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON)
-Some information has been (and will be) added over the period of time.
+The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
+Some information has been (and will be) added over time.
 
 ### Developed together with
 * [Steven G. Johnson](https://github.com/stevengj)
