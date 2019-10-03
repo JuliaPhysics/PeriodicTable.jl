@@ -78,7 +78,7 @@ julia> elements[1:4]
  Element(Beryllium)
  ```
  
- A nice interactive visualization of the periodic table, based on PeriodicTable.jl, can be found [here](https://github.com/JuliaRegistries/General).
+ A nice interactive visualization of the periodic table, based on PeriodicTable.jl, can be found [here](https://github.com/lancebeet/julia-scripts#periodictabletoyjl).
 
 ### Data by
 The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
