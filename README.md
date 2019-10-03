@@ -10,7 +10,7 @@
 
 # PeriodicTable.jl
 A very simple package for accessing elements in the Periodic Table! :fire:
-https://github.com/lancebeet/julia-scripts#periodictabletoyjl
+
 ### Installation
 Since PeriodicTable is registered in Julia's [General Registry](https://github.com/JuliaRegistries/General), you can readily install it with
 ```julia
