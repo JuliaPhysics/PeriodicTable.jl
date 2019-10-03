@@ -10,16 +10,15 @@
 
 # PeriodicTable.jl
 A very simple package for accessing elements in the Periodic Table! :fire:
-
+https://github.com/lancebeet/julia-scripts#periodictabletoyjl
 ### Installation
-Since PeriodicTable is registered in `METADATA.jl`, you can directly install it like,
+Since PeriodicTable is registered in Julia's [General Registry](https://github.com/JuliaRegistries/General), you can readily install it with
 ```julia
-julia> using Pkg
-julia> Pkg.add("PeriodicTable")
+] add PeriodicTable
 ```
 
 
-### How it works?
+### Usage
 PeriodicTable.jl provides a Julia interface to a small database of element
 properties for all of the elements in the periodic table. In particular `PeriodicTable` exports a global variable called `elements`, which is a collection of
 `Element` data structures.
@@ -78,6 +77,8 @@ julia> elements[1:4]
  Element(Lithium)  
  Element(Beryllium)
  ```
+ 
+ A nice interactive visualization of the periodic table, based on PeriodicTable.jl, can be found [here](https://github.com/JuliaRegistries/General).
 
 ### Data by
 The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
