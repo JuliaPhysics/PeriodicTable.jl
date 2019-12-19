@@ -194,6 +194,20 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements)
     end
 end
 
+# Since Element equality is determined by atomic number alone...
+Base.isequal(elm1::Element, elm2::Element) = elm1.number == elm2.number
+
+# There is no need to use all the data in Element to calculated the hash
+# since Element equality is determined by atomic number alone.
+Base.hash(elm::Element) = hash(elm.number)
+
+# Compare elements by atomic number to produce the most common way elements
+# are sorted.
+Base.isless(elm1::Element, elm2::Element) = elm1.number < elm2.number
+
+# Provide a simple way to iterate over all elements.
+Base.eachindex(elms::Elements) = eachindex(elms.data)
+
 include("elements.jl")
 const elements = Elements(_elements_data)
 
