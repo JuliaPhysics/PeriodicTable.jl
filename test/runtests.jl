@@ -51,3 +51,29 @@ end
 
 @test_throws ErrorException O.name = "Issue21"
 @test O.name == "Oxygen"
+
+@test isless(elements[28], elements[29])
+@test !isless(elements[88], elements[88])
+@test !isless(elements[92], elements[90])
+@test isequal(elements[38], elements[38])
+@test !isequal(elements[38], elements[39])
+
+@test elements[28] < elements[29]
+@test ! (elements[88] < elements[88])
+@test ! (elements[92] < elements[90])
+@test elements[92] > elements[91]
+@test !(elements[92] > elements[92])
+@test !(elements[92] > elements[93])
+@test elements[90] <= elements[91]
+@test elements[91] <= elements[91]
+@test !(elements[92] <= elements[91])
+@test elements[38] == elements[38]
+@test elements[38] ≠ elements[39]
+
+# Ensure that the hashcode works in Dict{}
+elmdict = Dict{Element,Int}( elements[z] => z for z in eachindex(elements))
+@test length(elmdict) == 119
+for z in eachindex(elements)
+    @test haskey(elmdict, elements[z])
+    @test elmdict[elements[z]] == z
+end
