@@ -3,9 +3,10 @@ uuid = "7b2266bf-644c-5ea3-82d8-af4bbd25a884"
 version = "1.0.0"
 
 [deps]
-Compat = "34da2185-b29b-5c13-b0c7-acf172513d20"
+Base64 = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [compat]
-Compat = "≥ 0.33.0"
 julia = "1"
+Unitful = "1.0"

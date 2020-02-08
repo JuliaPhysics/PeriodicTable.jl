@@ -11,7 +11,6 @@ e.g. `elements[:O]`.
 module PeriodicTable
 export Element, elements
 
-using Compat: replace
 import Unitful: u, g, cm, K, J, mol, Quantity
 
 """
