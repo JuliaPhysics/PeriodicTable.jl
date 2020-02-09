@@ -4,8 +4,6 @@ os:
   - linux
   - osx
 julia:
-  - 0.6
-  - 0.7
   - 1.0
   - nightly
 notifications:
@@ -18,6 +16,6 @@ matrix:
     - julia: nightly
 after_success:
   # push coverage results to Coveralls
-  - julia -e 'cd(Pkg.dir("PeriodicTable")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia -e 'using Pkg; cd(joinpath(dirname(pathof(PeriodicTable)), "..")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
-  - julia -e 'cd(Pkg.dir("PeriodicTable")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+  - julia -e 'using Pkg; cd(joinpath(dirname(pathof(PeriodicTable)), "..")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'

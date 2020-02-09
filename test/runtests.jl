@@ -1,7 +1,7 @@
-using PeriodicTable, Compat, Unitful
+using PeriodicTable, Unitful
 import Unitful: u, g, cm, K, J, mol
-using Compat.Test
-using Compat.Base64
+using Test
+using Base64
 
 @test eltype(elements) == Element
 @test length(elements) == 119 == length(collect(elements))
