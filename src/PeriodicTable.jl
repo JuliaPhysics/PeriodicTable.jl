@@ -23,6 +23,7 @@ struct Element
     boil::typeof(1.0K)
     category::String
     color::String
+    cpk_hex::String
     density::typeof(1.0g/cm^3)
     discovered_by::String
     el_config::String
@@ -47,6 +48,7 @@ Element(; name::AbstractString="",
           boil::typeof(1.0K)=NaN*K,
           category::AbstractString="",
           color::AbstractString="",
+          cpk_hex::AbstractString="",
           density::typeof(1.0g/cm^3)=NaN*g/cm^3,
           discovered_by::AbstractString="",
           el_config::AbstractString="",
@@ -63,7 +65,7 @@ Element(; name::AbstractString="",
           xpos::Integer=-1,
           ypos::Integer=-1,
           shells::AbstractVector{<:Integer}=Int[]) =
-    Element(name, appearance, atomic_mass, boil, category, color, density,
+    Element(name, appearance, atomic_mass, boil, category, color, cpk_hex, density,
         discovered_by, el_config, melt, molar_heat, named_by, number, period, phase,
         source, spectral_img, summary, symbol, xpos, ypos, shells)
 

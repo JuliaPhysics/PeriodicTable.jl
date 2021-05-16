@@ -16,7 +16,11 @@ F = elements[9]
 @test elements[8:9] == [O, F]
 @test O.name == "Oxygen"
 @test O.symbol == "O"
-@test nfields(O) == 22
+@test nfields(O) == 23
+
+# cpk colors
+@test O.cpk_hex == "#ff0d0d"
+@test F.cpk_hex == "#90e050"
 
 # Unitful units
 H = elements[1]
@@ -34,7 +38,7 @@ if VERSION < v"0.7-"
 else
     @test iterate(elements) == (elements[:H], 2)
     @test iterate(elements, 4) == (elements[:Be], 5)
-    @test iterate(elements, length(elements)+1) == nothing
+    @test iterate(elements, length(elements)+1) === nothing
 end
 
 # 2-argument show functions
