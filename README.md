@@ -1,7 +1,7 @@
 [![Build Status](https://github.com/JuliaPhysics/PeriodicTable.jl/workflows/CI/badge.svg)](https://github.com/JuliaPhysics/PeriodicTable.jl/actions)
 [![codecov.io](http://codecov.io/github/JuliaPhysics/PeriodicTable.jl/coverage.svg?branch=master)](http://codecov.io/github/JuliaPhysics/PeriodicTable.jl?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub version](https://badge.fury.io/gh/rahulkp220%2FPeriodicTable.jl.svg)](https://github.com/rahulkp220/PeriodicTable.jl)
+[![GitHub version](https://badge.fury.io/gh/JuliaPhysics%2FPeriodicTable.jl.svg)](https://github.com/JuliaPhysics/PeriodicTable.jl)
 [![GitHub contributors](https://img.shields.io/github/contributors/rahulkp220/PeriodicTable.jl.svg)](https://github.com/rahulkp220/PeriodicTable.jl/graphs/contributors)
 
 [![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://github.com/rahulkp220/)
