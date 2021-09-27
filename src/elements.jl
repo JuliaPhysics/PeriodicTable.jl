@@ -314,6 +314,7 @@ const _elements_data = [
             atomic_mass=30.9737619985u,
             category="polyatomic nonmetal",
             cpk_hex="#ff8000",
+            density=1.82g/cm^3,
             discovered_by="Hennig Brand",
             el_config="1s² 2s² 2p⁶ 3s² 3p³",
             molar_heat=23.824J/(mol*K),
