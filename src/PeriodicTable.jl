@@ -10,6 +10,7 @@ e.g. `elements[:O]`.
 """
 module PeriodicTable
 export Element, elements
+export getlist
 
 import Unitful: u, g, cm, K, J, mol, Quantity
 
