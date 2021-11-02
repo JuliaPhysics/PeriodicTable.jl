@@ -166,6 +166,10 @@ Base.get(e::Elements, i::Integer, default) = get(e.bynumber, i, default)
 Base.get(e::Elements, i::AbstractString, default) = get(e.byname, lowercase(i), default)
 Base.get(e::Elements, i::Symbol, default) = get(e.bysymbol, i, default)
 
+# Utility functions
+getlist(e::Elements, i::Symbol) = getfield.(e,i)
+getlist(e::Elements, i::AbstractString) = getfield.(e,Symbol(i))
+
 # support iterating over elements
 Base.eltype(e::Elements) = Element
 Base.length(e::Elements) = length(e.data)
