@@ -169,6 +169,8 @@ Base.get(e::Elements, i::Symbol, default) = get(e.bysymbol, i, default)
 # Utility functions
 getlist(e::Elements, i::Symbol) = getfield.(e,i)
 getlist(e::Elements, i::AbstractString) = getfield.(e,Symbol(i))
+getlist(e::Vector{Element}, i) = getlist(Elements(e),i)
+
 
 # support iterating over elements
 Base.eltype(e::Elements) = Element
