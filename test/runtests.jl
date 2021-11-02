@@ -86,4 +86,4 @@ end
 @test length(getlist(elements,:symbol)) == length(elements)
 @test getlist(elements[1:2],:name) == ["Hydrogen","Helium"]
 @test getlist(elements[3:4],"symbol") == ["Li","Be"]
-@test getlist(elements[[6,74]],:density) = [1.821u"g*cm^-3",13.51u"g*cm^-3"]
+@test getlist(elements[[6,74]],:density) == [1.821u"g*cm^-3",13.51u"g*cm^-3"]
