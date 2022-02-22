@@ -9,9 +9,9 @@ The data can be looked up by atomic number via `elements[n]`, by name
 e.g. `elements[:O]`.
 """
 module PeriodicTable
-export Element, elements
+export Element, elements, Isotope, isotopes
 
-import Unitful: u, g, cm, K, J, mol, Quantity
+import Unitful: u, g, cm, K, J, mol, Quantity, s, b
 
 """
 Element composite type
@@ -211,5 +211,9 @@ Base.eachindex(elms::Elements) = eachindex(elms.data)
 
 include("elements.jl")
 const elements = Elements(_elements_data)
+
+include("isotopes.jl")
+include("isotopes_data.jl")
+const isotopes = Isotopes(_isotopes_data)
 
 end
