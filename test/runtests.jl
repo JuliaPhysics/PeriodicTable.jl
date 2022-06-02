@@ -84,5 +84,5 @@ end
 
 # Test data plausibility
 for g in [e for e in elements if e.phase=="Gas"]
-    @test g.density < 0.05g/cm^3
+    @test 5e-5g/cm^3 < g.density < 5e-2g/cm^3
 end
