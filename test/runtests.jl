@@ -81,3 +81,8 @@ for z in eachindex(elements)
     @test haskey(elmdict, elements[z])
     @test elmdict[elements[z]] == z
 end
+
+# Test data plausibility
+for g in [e for e in elements if e.phase=="Gas"]
+    @test g.density < 0.05g/cm^3
+end
