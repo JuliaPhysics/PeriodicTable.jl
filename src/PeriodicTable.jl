@@ -196,7 +196,7 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements)
 end
 
 # Since Element equality is determined by atomic number alone...
-Base.isequal(elm1::Element, elm2::Element) = elm1.number == elm2.number
+Base.:(==)(elm1::Element, elm2::Element) = elm1.number == elm2.number
 
 # There is no need to use all the data in Element to calculated the hash
 # since Element equality is determined by atomic number alone.
