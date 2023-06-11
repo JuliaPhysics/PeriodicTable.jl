@@ -83,6 +83,9 @@ julia> elements[1:4]
 The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
 Some information has been (and will be) added over time.
 
+### Related packages
+[Mendeleev](https://github.com/Eben60/Mendeleev.jl) is [API compatible](https://eben60.github.io/Mendeleev.jl/#Compatibility-Issues) with the `PeriodicTable` and contains much broader range of data on chemical elements. [IsotopeTable](https://github.com/Gregstrq/IsotopeTable.jl), also inspired by `PeriodicTable`, provides data on various isotopes.
+
 ### Developed together with
 * [Steven G. Johnson](https://github.com/stevengj)
 * [Jacob Wikmark](https://github.com/lancebeet)
