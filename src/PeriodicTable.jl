@@ -187,12 +187,92 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements)
     for el in e
         table[el.ypos, el.xpos] = rpad(el.symbol, 3)
     end
-    for i = 1:size(table,1)
-        for j = 1:size(table, 2)
+    for i in axes(table, 1)
+        for j in axes(table, 2)
             print(io, table[i,j])
         end
         println(io)
     end
+end
+
+const _clrs = Dict(
+    "diatomic nonmetal" => ("#e2eeff", "#0060f0"),
+    "noble gas" => ("#ffe7eb", "#cd1d5e"),
+    "alkali metal" => ("#d8f8ff", "#00758c"),
+    "alkaline earth metal" => ("#ffe7e7", "#d60024"),
+    "metalloid" => ("#fef7e0", "#945700"),
+    "polyatomic nonmetal" => ("#e2eeff", "#0060f0"),
+    "post-transition metal" => ("#d6f9e8", "#227754"),
+    "transition metal" => ("#f3e8fd", "#6232ec"),
+    "lanthanide" => ("#dff3ff", "#003355"),
+    "actinide" => ("#ffe6d4", "#c73200"),
+    "unknown, probably transition metal" => ("#e7e7ea", "#3f374f"),
+    "unknown, probably post-transition metal" => ("#e7e7ea", "#3f374f"),
+    "unknown, probably metalloid" => ("#e7e7ea", "#3f374f"),
+    "unknown, predicted to be noble gas" => ("#e7e7ea", "#3f374f"),
+    "unknown, but predicted to be an alkali metal" => ("#e7e7ea", "#3f374f"),
+)
+
+function _fill_element_data(el::Element)
+    clr = _clrs[el.category]
+    return """
+    <td class="element" style="background-color:$(clr[1]);color:$(clr[2]);">
+        <div class="top">
+            <div>$(el.number)</div>
+            <div>$(round(el.atomic_mass.val; digits=3))</div>
+        </div>
+        <div class="symbol">$(el.symbol)</div>
+        <div>$(el.name)</div>
+    </td>
+    """
+end
+
+# rich html periodic table
+function Base.show(io::IO, ::MIME"text/html", e::PeriodicTable.Elements)
+    table = fill("<td></td>\n", 10, 18)
+    for el in e
+        table[el.ypos, el.xpos] = _fill_element_data(el)
+    end
+    print(
+        io,
+        """
+<table style="width:100%;empty-cells:hide;border:0px;background-color:#ffffff">
+        <style>
+            .element {
+                border: 5px solid #ffffff;
+                min-width: 100px;
+                height: 100%;
+                text-align: center;
+                font-size: 10px;
+                border-radius: 10px;
+                border-collapse: collapse;
+            }
+            .top {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .symbol {
+                text-align: center;
+                font-weight: bold;
+                # font-size: 5px;
+            }
+        </style>
+"""
+    )
+    for i in axes(table, 1)
+        println(io, "\n<tr>")
+        for j in axes(table, 2)
+            print(io, table[i, j])
+        end
+        print(io, "</tr>")
+    end
+    print(io, "\n</table>")
+end
+
+# For Vscode
+function Base.show(io::IO, ::MIME"juliavscode/html", e::PeriodicTable.Elements)
+    show(io, MIME"text/html"(), e)
 end
 
 # Since Element equality is determined by atomic number alone...
