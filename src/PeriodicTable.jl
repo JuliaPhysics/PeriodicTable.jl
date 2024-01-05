@@ -187,15 +187,15 @@ function Base.show(io::IO, ::MIME"text/plain", e::Elements)
     for el in e
         table[el.ypos, el.xpos] = rpad(el.symbol, 3)
     end
-    for i = 1:size(table,1)
-        for j = 1:size(table, 2)
+    for i in axes(table, 1)
+        for j in axes(table, 2)
             print(io, table[i,j])
         end
         println(io)
     end
 end
 
-_clrs = Dict(
+const _clrs = Dict(
     "diatomic nonmetal" => ("#e2eeff", "#0060f0"),
     "noble gas" => ("#ffe7eb", "#cd1d5e"),
     "alkali metal" => ("#d8f8ff", "#00758c"),
@@ -260,10 +260,9 @@ function Base.show(io::IO, ::MIME"text/html", e::PeriodicTable.Elements)
         </style>
 """
     )
-    s = size(table)
-    for i = 1:s[1]
+    for i in axes(table, 1)
         println(io, "\n<tr>")
-        for j = 1:s[2]
+        for j in axes(table, 2)
             print(io, table[i, j])
         end
         print(io, "</tr>")
