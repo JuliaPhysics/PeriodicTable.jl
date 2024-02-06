@@ -80,8 +80,7 @@ julia> elements[1:4]
  A nice interactive visualization of the periodic table, based on PeriodicTable.jl, can be found [here](https://github.com/lancebeet/julia-scripts#periodictabletoyjl).
 
 ### Data by
-The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON).
-Some information has been (and will be) added over time.
+The data used for this package has been pulled up in parts from [here](https://github.com/Bowserinator/Periodic-Table-JSON). Atomic weights are from the [IUPAC 2021 tabulation](https://iupac.qmul.ac.uk/AtWt/)
 
 ### Related packages
 [Mendeleev](https://github.com/Eben60/Mendeleev.jl) is [API compatible](https://eben60.github.io/Mendeleev.jl/#Compatibility-Issues) with the `PeriodicTable` and contains much broader range of data on chemical elements. [IsotopeTable](https://github.com/Gregstrq/IsotopeTable.jl), also inspired by `PeriodicTable`, provides data on various isotopes.
