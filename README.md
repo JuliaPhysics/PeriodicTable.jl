@@ -85,11 +85,8 @@ The data used for this package has been pulled up in parts from [here](https://g
 ### Related packages
 [Mendeleev](https://github.com/Eben60/Mendeleev.jl) is [API compatible](https://eben60.github.io/Mendeleev.jl/#Compatibility-Issues) with the `PeriodicTable` and contains much broader range of data on chemical elements. [IsotopeTable](https://github.com/Gregstrq/IsotopeTable.jl), also inspired by `PeriodicTable`, provides data on various isotopes.
 
-### Developed together with
-* [Steven G. Johnson](https://github.com/stevengj)
-* [Jacob Wikmark](https://github.com/lancebeet)
-* [Carsten Bauer](https://github.com/crstnbr)
-
-### Facing issues? :scream:
-* Open a PR with the detailed expaination of the issue
-* Reach me out [here](https://www.rahullakhanpal.in)
+### Contributors ✨
+<!-- markdownlint-disable -->
+<a href="https://github.com/JuliaPhysics/PeriodicTable.jl/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=JuliaPhysics/PeriodicTable.jl" />
+</a>
